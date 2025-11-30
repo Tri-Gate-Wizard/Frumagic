@@ -1,8 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Spell
 {
-    string spellName;
+    List<Glyph> glyphs;
     int cost;
     string element;
     int power;
@@ -13,21 +15,22 @@ public class Spell
 
     string recoil;
 
-    public Spell(string name, int cos, string elem, int pow,
-                 string move, string eff, string rec)
+    public Spell(List<Glyph> gly, int cos, string ele, int pow, string mov, string eff, string rec)
     {
-        spellName = name;
+        glyphs = gly;
         cost = cos;
-        element = elem;
+        element = ele;
         power = pow;
-        movement = move;
+        movement = mov;
         effect = eff;
         recoil = rec;
     }
-    public string GetSpellName()
+
+    public List<Glyph> GetGlyphs()
     {
-        return spellName;
+        return glyphs;
     }
+    
     public int GetManaCost()
     {
         return cost;
