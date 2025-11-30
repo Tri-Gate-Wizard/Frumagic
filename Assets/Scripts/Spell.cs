@@ -6,4 +6,28 @@ public class Spell : MonoBehaviour
     int manaCost;
     string element;
     int power;
+
+    public void SetSpell(string name, int cost, string elem, int pow)
+    {
+        spellName = name;
+        manaCost = cost;
+        element = elem;
+        power = pow;
+    }
+    public string GetSpellName()
+    {
+        return spellName;
+    }
+    public int GetManaCost()
+    {
+        return manaCost;
+    }
+    public string GetElement()
+    {
+        return element;
+    }
+    public int GetPower()
+    {
+        return power;
+    }
 }
