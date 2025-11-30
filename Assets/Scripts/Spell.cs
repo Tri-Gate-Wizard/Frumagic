@@ -3,16 +3,26 @@ using UnityEngine;
 public class Spell
 {
     string spellName;
-    int manaCost;
+    int cost;
     string element;
     int power;
 
-    public Spell(string name, int cost, string elem, int pow)
+    string movement;
+
+    string effect;
+
+    string recoil;
+
+    public Spell(string name, int cos, string elem, int pow,
+                 string move, string eff, string rec)
     {
         spellName = name;
-        manaCost = cost;
+        cost = cos;
         element = elem;
         power = pow;
+        movement = move;
+        effect = eff;
+        recoil = rec;
     }
     public string GetSpellName()
     {
@@ -20,7 +30,7 @@ public class Spell
     }
     public int GetManaCost()
     {
-        return manaCost;
+        return cost;
     }
     public string GetElement()
     {
@@ -29,5 +39,17 @@ public class Spell
     public int GetPower()
     {
         return power;
+    }
+    public string GetMovement()
+    {
+        return movement;
+    }
+    public string GetEffect()
+    {
+        return effect;
+    }
+    public string GetRecoil()
+    {
+        return recoil;
     }
 }
