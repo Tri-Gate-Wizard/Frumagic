@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Spell : MonoBehaviour
+public class Spell
 {
     string spellName;
     int manaCost;
