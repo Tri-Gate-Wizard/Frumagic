@@ -11,7 +11,7 @@ public class BattleManager : MonoBehaviour
     int turnCount = 0;
     bool battlecontinues = true;
 
-    Spell fireball = new Spell("Fireball", 10, "Fire", 30);
+    Spell fireball = new Spell("Fireball", 10, "Fire", 30, "Straight", "Burn", "None");
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
