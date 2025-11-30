@@ -6,6 +6,7 @@ public class BattleManager : MonoBehaviour
 {   
     public Player player;
     public Enemy enemy;
+    public Canvas battleCanvas;
     bool playerTurn = true;
     int turnCount = 0;
     bool battlecontinues = true;
@@ -13,7 +14,7 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         ResetBattle();
-        TurnManager();
+        //TurnManager();
     }
 
     // Update is called once per frame
@@ -25,40 +26,48 @@ public class BattleManager : MonoBehaviour
     void ResetBattle()
     {
         // Code to reset battle state
+        battleCanvas.enabled = true;
+        turnCount = 0;
     }
-    void TurnManager()
+
+    void EndBattle()
+    {
+        // Code to end battle state
+        Debug.Log("バトル終了！");
+        battleCanvas.enabled = false;
+
+    }
+    public void TurnManager(string action)
     {   
         
         playerTurn = true;
-        while(battlecontinues == true)
+        if(battlecontinues == true)
         {
             if (playerTurn)
             {
-                PlayerTurn();
-            }
-            else
-            {
+                PlayerTurn(action);
                 EnemyTurn();
             }
-            Debug.Log(turnCount + "ターン目終了");
             turnCount++;
+            Debug.Log(turnCount + "ターン目終了");
             
             if (turnCount >= 10)
             {
                 Debug.Log("時間切れ…");
                 battlecontinues = false;
             }
+            if(battlecontinues == false)
+            {
+                EndBattle();
+            }
         }
-        Debug.Log("バトル終了！");
+        //Debug.Log("バトル終了！");
 
     }
-    void PlayerTurn()
+    void PlayerTurn(string action)
     {
         Debug.Log("行動を選択してね!");
-        string input = "";  // Placeholder for player input
-        //input = Console.ReadLine();
-        input = "attack"; //仮の入力
-        if (input == "attack")
+        if (action == "Attack")
         {
             Debug.Log(enemy.name + "に攻撃!");
             enemy.Damage(player.Atk);
@@ -70,7 +79,7 @@ public class BattleManager : MonoBehaviour
             }
             playerTurn = false;
         }
-        else if (input == "defend")
+        else if (action == "Defend")
         {
             Debug.Log("防御成功!");
             // Code to handle defense
@@ -84,10 +93,15 @@ public class BattleManager : MonoBehaviour
 
     void EnemyTurn()
     {
-        Debug.Log("Enemy's turn!");
+        if(enemy.IsAlive() == false)
+        {
+            return;
+        }
+        Debug.Log("相手のターン!");
         // Code for enemy action
         Debug.Log(enemy.name + "の攻撃!");
         player.Damage(enemy.Atk);
+
         if(!player.IsAlive())
         {
             Debug.Log("あなたの負け!");
