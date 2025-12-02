@@ -2,16 +2,24 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[System.Serializable]
 public class Spell
 {
+    [SerializeField]
     List<Glyph> glyphs;
+    [SerializeField]
     int cost;
+    [SerializeField]
     string element;
+    [SerializeField]
     int power;
+    [SerializeField]
 
     string movement;
+    [SerializeField]
 
     string effect;
+    [SerializeField]
 
     string recoil;
 

@@ -11,7 +11,7 @@ public class BattleManager : MonoBehaviour
     int turnCount = 0;
     bool battlecontinues = true;
 
-    Spell fireball = new Spell("Fireball", 10, "Fire", 30);
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -71,8 +71,8 @@ public class BattleManager : MonoBehaviour
         Debug.Log("行動を選択してね!");
         if (action == "Attack")
         {
-            Debug.Log(enemy.name + "に" + fireball.GetSpellName() + "で攻撃!");
-            enemy.Damage(player.Atk + fireball.GetPower());
+            Debug.Log(enemy.name + "に" + /*fireball.GetSpellName() +*/ "で攻撃!");
+            enemy.Damage(player.Atk /*+ fireball.GetPower()*/);
             if(!enemy.IsAlive())
             {
                 Debug.Log(enemy.name + " の負け!");
