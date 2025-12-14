@@ -148,8 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84587eec7a5836843b4b08f8a5af5fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleManager
+  battleContext: {fileID: 11400000, guid: 76a707a7a716f9f4aaa0fdf61e7354a2, type: 2}
+  enemyDatabase: {fileID: 11400000, guid: c69c174d976fffe45b104784ea5a658c, type: 2}
+  enemyPrefab: {fileID: 976840082879781918, guid: d1b67a4ddfcfae34882f017b6034531e, type: 3}
   player: {fileID: 1293836317}
-  enemy: {fileID: 301799397}
+  enemyList: []
   battleCanvas: {fileID: 1525770379}
 --- !u!4 &298996021
 Transform:
@@ -197,6 +200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Slime
   HP: 0
   Atk: 0
+  enemyObj: {fileID: 0}
+  currentHP: 0
 --- !u!4 &301799398
 Transform:
   m_ObjectHideFlags: 0
