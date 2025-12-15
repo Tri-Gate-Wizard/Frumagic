@@ -20,4 +20,11 @@ public class Enemy :Character
             currentHP = 0;
 
     }
+
+    public override void Heal(int amount)
+    {
+        Debug.Log(this.name + "は" + amount + "回復した!");
+        currentHP += amount;
+    }
+    
 }

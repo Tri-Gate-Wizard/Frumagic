@@ -122,7 +122,7 @@ public class BattleManager : MonoBehaviour
         else if (action == "Item")
         {
             Debug.Log("アイテムを使った!");
-            player.Damage(-20);
+            player.Heal(20);
         }
         else
         {

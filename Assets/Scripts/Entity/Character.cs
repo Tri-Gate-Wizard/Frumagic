@@ -18,6 +18,11 @@ public class Character : MonoBehaviour
             HP = 0;
 
     }
+    public virtual void Heal(int amount)
+    {
+        Debug.Log(this.name + "は" + amount + "回復した!");
+        HP += amount;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,8 +31,4 @@ public class Character : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
