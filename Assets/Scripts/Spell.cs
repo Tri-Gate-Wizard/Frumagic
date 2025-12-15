@@ -1,26 +1,47 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+[System.Serializable]
 public class Spell
 {
-    string spellName;
-    int manaCost;
+    [SerializeField]
+    List<Glyph> glyphs;
+    [SerializeField]
+    int cost;
+    [SerializeField]
     string element;
+    [SerializeField]
     int power;
+    [SerializeField]
 
-    public Spell(string name, int cost, string elem, int pow)
+    string movement;
+    [SerializeField]
+
+    string effect;
+    [SerializeField]
+
+    string recoil;
+
+    public Spell(List<Glyph> gly, int cos, string ele, int pow, string mov, string eff, string rec)
     {
-        spellName = name;
-        manaCost = cost;
-        element = elem;
+        glyphs = gly;
+        cost = cos;
+        element = ele;
         power = pow;
+        movement = mov;
+        effect = eff;
+        recoil = rec;
     }
-    public string GetSpellName()
+
+    public List<Glyph> GetGlyphs()
     {
-        return spellName;
+        return glyphs;
     }
+    
     public int GetManaCost()
     {
-        return manaCost;
+        return cost;
     }
     public string GetElement()
     {
@@ -29,5 +50,17 @@ public class Spell
     public int GetPower()
     {
         return power;
+    }
+    public string GetMovement()
+    {
+        return movement;
+    }
+    public string GetEffect()
+    {
+        return effect;
+    }
+    public string GetRecoil()
+    {
+        return recoil;
     }
 }

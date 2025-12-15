@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
         return (HP > 0);
     }
 
-    public void Damage(int damage)
+    public virtual void Damage(int damage)
     {
         Debug.Log(this.name + "は" + damage + "ダメージ受けた!");
         HP -= damage;
