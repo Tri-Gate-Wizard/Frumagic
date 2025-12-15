@@ -15,8 +15,9 @@ public class BattleManager : MonoBehaviour
     public List<Enemy> enemyList;
     
     public Canvas battleCanvas;
-    bool playerTurn = true;
+    bool isDefend = false;
     int turnCount = 0;
+    int Def = 1;
     bool battlecontinues = true;
 
     
@@ -75,17 +76,8 @@ public class BattleManager : MonoBehaviour
     }
     public void TurnManager(string action)
     {   
-        
-        playerTurn = true;
-        if(battlecontinues == true)
-        {
-            if (playerTurn)
-            {
-                PlayerTurn(action);
-                EnemyTurn();
-            }
-            turnCount++;
-            Debug.Log(turnCount + "ターン目終了");
+            PlayerTurn(action);
+            Def = 1;
             
             if (turnCount >= 10)
             {
@@ -96,7 +88,6 @@ public class BattleManager : MonoBehaviour
             {
                 EndBattle();
             }
-        }
         //Debug.Log("バトル終了！");
 
     }
@@ -105,7 +96,7 @@ public class BattleManager : MonoBehaviour
         Debug.Log("行動を選択してね!");
         if (action == "Attack")
         {
-            Debug.Log(enemyList[1].name + "に" + /*fireball.GetSpellName() +*/ "で攻撃!");
+            Debug.Log(enemyList[0].name + "に" + /*fireball.GetSpellName() +*/ "で攻撃!");
             enemyList[0].Damage(player.Atk /*+ fireball.GetPower()*/);
             if(!enemyList[0].IsAlive())
             {
@@ -113,13 +104,25 @@ public class BattleManager : MonoBehaviour
                 // Code to handle enemy defeat
                 battlecontinues = false;
             }
-            playerTurn = false;
+            turnCount++;
+            if (!isDefend)
+            {
+                EnemyTurn();
+            }
+            Debug.Log(turnCount + "ターン目終了");
+            isDefend = false;
         }
         else if (action == "Defend")
         {
+            isDefend = true;
+            Def = 2;
             Debug.Log("防御成功!");
-            // Code to handle defense
-            playerTurn = false;
+            EnemyTurn();
+        }
+        else if (action == "Item")
+        {
+            Debug.Log("アイテムを使った!");
+            player.Damage(-20);
         }
         else
         {
@@ -129,21 +132,26 @@ public class BattleManager : MonoBehaviour
 
     void EnemyTurn()
     {
-        if(enemyList[0].IsAlive() == false)
+        foreach(Enemy enemy in enemyList)
         {
-            return;
-        }
-        Debug.Log("相手のターン!");
-        // Code for enemy action
-        Debug.Log(enemyList[0].name + "の攻撃!");
-        player.Damage(enemyList[0].enemyObj.Atk);
+            
+        
+            if(enemy.IsAlive() == false)
+            {
+                return;
+            }
+            Debug.Log("相手のターン!");
+            // Code for enemy action
+            Debug.Log(enemy.name + "の攻撃!");
+            player.Damage(enemy.enemyObj.Atk/Def);
 
-        if(!player.IsAlive())
-        {
-            Debug.Log("あなたの負け!");
-            // Code to handle player defeat
-            battlecontinues = false;
+            if(!player.IsAlive())
+            {
+                Debug.Log("あなたの負け!");
+                // Code to handle player defeat
+                battlecontinues = false;
+            }
+                
         }
-        playerTurn = true;
     }
 }
