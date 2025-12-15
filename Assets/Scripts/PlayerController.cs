@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // 新InputSystemでは Mouse.current を使う
+        
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             Vector3 mousePos = Mouse.current.position.ReadValue();
