@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     private Vector3 targetPosition;
     private bool isMoving = false;
+    public BattleContext battleContext;
+    public PlayerPosKeeper playerPosKeeper;
 
     void Update()
     {
@@ -24,6 +26,18 @@ public class PlayerController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
                 isMoving = false;
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Battle Started!");
+            // バトル開始のロジックをここに追加
+            battleContext.enemyList = other.GetComponent<EnemyBreakDown>().enemyIDs;
+            battleContext.battledEnemyIndex = other.GetComponent<EnemyBreakDown>().enemyIndex;
+            playerPosKeeper.playerPosition = transform.position;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
         }
     }
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   HP: 100
   Atk: 20
   weakness: "\u706B"
+  enemySprite: {fileID: 7921184317453744328, guid: ab0dbe7b53187864da94002547d917cf, type: 3}

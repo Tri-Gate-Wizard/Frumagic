@@ -5,4 +5,6 @@ using System.Collections.Generic;
 public class BattleContext : ScriptableObject
 {
     public List<int> enemyList;
+    public List<bool> livingEnemyList;
+    public int battledEnemyIndex;
 }

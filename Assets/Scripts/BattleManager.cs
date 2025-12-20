@@ -44,6 +44,8 @@ public class BattleManager : MonoBehaviour
             Debug.Log("敵ID: " + enemyID);
         }
         enemyDatabase.Init();
+        int i = 0;
+
         foreach (int enemyID in battleContext.enemyList)
         {
             EnemyObj enemyObj = enemyDatabase.GetEnemyByID(enemyID);
@@ -51,7 +53,8 @@ public class BattleManager : MonoBehaviour
             Debug.Log("敵のHP: " + enemyObj.HP);
             Debug.Log("敵の攻撃力: " + enemyObj.Atk);
             Debug.Log("敵の弱点: " + enemyObj.weakness);
-            SpawnEnemy(enemyObj);
+            SpawnEnemy(enemyObj,new Vector3(i * 3.0f, i * -1.0f, 0.0f));
+            i++;
         }
         
     }
@@ -61,13 +64,14 @@ public class BattleManager : MonoBehaviour
         // Code to end battle state
         Debug.Log("バトル終了！");
         battleCanvas.enabled = false;
-
+        battleContext.livingEnemyList[battleContext.battledEnemyIndex] = false;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ExploreScene");
     }
 
-    void SpawnEnemy(EnemyObj enemyObj)
+    void SpawnEnemy(EnemyObj enemyObj, Vector3 position)
     {
         Debug.Log(enemyObj.enemyName + "が現れた！");
-        GameObject enemy = Instantiate(enemyPrefab);
+        GameObject enemy = Instantiate(enemyPrefab, position, Quaternion.identity);
         enemy.name = enemyObj.enemyName;
         enemy.GetComponent<SpriteRenderer>().sprite = enemyObj.enemySprite;
         enemy.GetComponent<Enemy>().Initialize(enemyObj);
