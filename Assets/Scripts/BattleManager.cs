@@ -64,7 +64,12 @@ public class BattleManager : MonoBehaviour
         // Code to end battle state
         Debug.Log("バトル終了！");
         battleCanvas.enabled = false;
-        battleContext.livingEnemyList[battleContext.battledEnemyIndex] = false;
+        if (player.IsAlive())
+        {
+            Debug.Log("あなたの勝ち!");
+            battleContext.livingEnemyList[battleContext.battledEnemyIndex] = false;
+        }
+        
         UnityEngine.SceneManagement.SceneManager.LoadScene("ExploreScene");
     }
 
@@ -104,7 +109,7 @@ public class BattleManager : MonoBehaviour
             enemyList[0].Damage(player.Atk /*+ fireball.GetPower()*/);
             if(!enemyList[0].IsAlive())
             {
-                Debug.Log(enemyList[0].name + " は倒れた!");
+                enemyList[0].Die();
                 // Code to handle enemy defeat
                 battlecontinues = false;
             }

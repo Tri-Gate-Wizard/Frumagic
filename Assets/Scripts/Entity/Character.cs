@@ -5,7 +5,7 @@ public class Character : MonoBehaviour
     public int HP;
     public int Atk;
 
-    public bool IsAlive()
+    public virtual bool IsAlive()
     {
         return (HP > 0);
     }

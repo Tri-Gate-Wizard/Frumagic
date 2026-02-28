@@ -9,7 +9,7 @@ public class Enemy :Character
     {
         enemyObj = obj;
         currentHP = enemyObj.HP;
-        
+        this.gameObject.SetActive(true);
     }
 
     public override void Damage(int damage)
@@ -26,5 +26,17 @@ public class Enemy :Character
         Debug.Log(this.name + "は" + amount + "回復した!");
         currentHP += amount;
     }
-    
+
+    public override bool IsAlive()
+    {
+        return currentHP > 0;
+    }
+
+    public void Die()
+    {
+        Debug.Log(this.name + "は倒れた!");
+        // Code to handle enemy defeat
+        this.gameObject.SetActive(false);
+    }
+
 }
