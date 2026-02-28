@@ -5,6 +5,8 @@ public class MapGenerator : MonoBehaviour
     public Tilemap tilemap;
     public TileBase groundTile; 
     public TileBase wallTile;
+    public TileBase TransitionTile;
+    public GameObject TransitionObject;
 
     public int width = 50;
     public int height = 50;
@@ -23,6 +25,9 @@ public class MapGenerator : MonoBehaviour
                 tilemap.SetTile(new Vector3Int(x, y, 0), tile);
             }
         }
+        Vector3Int transpos = new Vector3Int(Random.Range(0, width), Random.Range(0, height),0);
+        tilemap.SetTile(transpos, TransitionTile);
+        TransitionObject.transform.position = transpos;
     }
 
     // Update is called once per frame

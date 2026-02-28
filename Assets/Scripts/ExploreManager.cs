@@ -9,6 +9,7 @@ public class ExploreManager : MonoBehaviour
     public GameObject enemySample;
     public BattleContext battleContext;
     public int enemyCount = 3;
+    public bool isCleared = true;
     //public BattleContext battleContext;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +20,10 @@ public class ExploreManager : MonoBehaviour
         {
             SpawnEnemy(enemySample,i);
         }
-        
+        if (isCleared)
+        {
+            Debug.Log("このエリアはクリアされている!");
+        }
     }
 
     // Update is called once per frame
@@ -39,6 +43,7 @@ public class ExploreManager : MonoBehaviour
             enemyInstance.GetComponent<EnemyBreakDown>().enemyIndex = index;
             //enemy.GetComponent<Enemy>().Initialize(enemyObj);
             //battleContext.livingEnemyList.Add(true);
+            isCleared = false;
         }
         
         

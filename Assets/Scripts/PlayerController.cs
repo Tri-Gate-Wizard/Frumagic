@@ -39,5 +39,14 @@ public class PlayerController : MonoBehaviour
             playerPosKeeper.playerPosition = transform.position;
             UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
         }
+        else if (other.CompareTag("Transition"))
+        {
+            Debug.Log("Transition Triggered!");
+            // シーン遷移のロジックをここに追加
+            playerPosKeeper.playerPosition = transform.position;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("ExploreScene");
+        }
     }
+
+    
 }
