@@ -104,7 +104,7 @@ public class BattleManager : MonoBehaviour
             enemyList[0].Damage(player.Atk /*+ fireball.GetPower()*/);
             if(!enemyList[0].IsAlive())
             {
-                Debug.Log(enemyList[0].name + " の負け!");
+                Debug.Log(enemyList[0].name + " は倒れた!");
                 // Code to handle enemy defeat
                 battlecontinues = false;
             }
