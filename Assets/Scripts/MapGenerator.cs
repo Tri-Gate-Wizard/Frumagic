@@ -6,7 +6,6 @@ public class MapGenerator : MonoBehaviour
 
     
     public float wallProbability = 0.2f;
-    public MapMemoryKeeper mapMemoryKeeper;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -8,14 +8,24 @@ public class ExploreManager : MonoBehaviour
     public PlayerPosKeeper playerPosKeeper;
     public GameObject enemySample;
     public BattleContext battleContext;
+    public GeneralDataKeeper generalDataKeeper;
     public int enemyCount = 3;
     public bool isCleared = true;
+    public MapFolder mapFolder;
+    private GameObject currentMap;
     //public BattleContext battleContext;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // プレイヤーの位置を復元
         playerObject.transform.position = playerPosKeeper.playerPosition;
+        currentMap = Instantiate(mapFolder.maps[generalDataKeeper.currentFloorNum], Vector3.zero, Quaternion.identity);
+        if (generalDataKeeper.isFloorChanged)
+        {
+            playerObject.transform.position = Vector3.zero; // フロアが変わった場合はプレイヤーを初期位置に配置
+            generalDataKeeper.isFloorChanged = false;
+        }
+        
         for (int i = 0; i < enemyCount; i++)
         {
             SpawnEnemy(enemySample,i);

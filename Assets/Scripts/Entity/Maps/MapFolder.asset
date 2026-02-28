@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2d74527b81b66046a3c59c4967e6785, type: 3}
-  m_Name: SampleBattleMap
-  m_EditorClassIdentifier: Assembly-CSharp::MapMemoryKeeper
-  mapName: 
-  mapID: 0
-  width: 0
-  height: 0
+  m_Script: {fileID: 11500000, guid: cb77b5b2dbf8e75428b76b84c9ea01bf, type: 3}
+  m_Name: MapFolder
+  m_EditorClassIdentifier: Assembly-CSharp::MapFolder
+  maps: []
