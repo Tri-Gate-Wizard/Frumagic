@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PlayerController : MonoBehaviour
     private bool isMoving = false;
     public BattleContext battleContext;
     public PlayerPosKeeper playerPosKeeper;
+    public GeneralDataKeeper generalDataKeeper;
+    public FloorManager floorManager;
+    private bool isTransitioning = false;
 
     void Update()
     {
@@ -24,9 +28,14 @@ public class PlayerController : MonoBehaviour
         if (isMoving)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            if (Vector3.Distance(transform.position, targetPosition) < 0.1f){
                 isMoving = false;
+            }
         }
+    }
+    public void TransitionEnd()
+    {
+        isTransitioning = false;
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -39,12 +48,14 @@ public class PlayerController : MonoBehaviour
             playerPosKeeper.playerPosition = transform.position;
             UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
         }
-        else if (other.CompareTag("Transition"))
+        else if (other.CompareTag("Transition") && !isTransitioning)
         {
             Debug.Log("Transition Triggered!");
-            // シーン遷移のロジックをここに追加
-            playerPosKeeper.playerPosition = transform.position;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("ExploreScene");
+            isTransitioning = true;
+            // フロア遷移のロジックをここに追加
+            playerPosKeeper.playerPosition = new Vector3(0, 0, 0); // フロア遷移後のプレイヤーの位置を設定
+            floorManager.LoadNextFloor();
+
         }
     }
 

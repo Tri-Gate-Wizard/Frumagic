@@ -18,11 +18,15 @@ public class ExploreManager : MonoBehaviour
     void Start()
     {
         // プレイヤーの位置を復元
+        Debug.Log("現在のフロア: " + generalDataKeeper.currentFloorNum);
+
+        PlayerController playerController = playerObject.GetComponent<PlayerController>();
         playerObject.transform.position = playerPosKeeper.playerPosition;
+        playerController.TransitionEnd(); // フロア遷移が完了したことをPlayerControllerに通知
         currentMap = Instantiate(mapFolder.maps[generalDataKeeper.currentFloorNum], Vector3.zero, Quaternion.identity);
         if (generalDataKeeper.isFloorChanged)
         {
-            playerObject.transform.position = Vector3.zero; // フロアが変わった場合はプレイヤーを初期位置に配置
+            //playerObject.transform.position = Vector3.zero; // フロアが変わった場合はプレイヤーを初期位置に配置
             generalDataKeeper.isFloorChanged = false;
         }
         

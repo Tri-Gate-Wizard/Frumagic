@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b709be5395b21dd4db55a8dec7aac8c8, type: 3}
   m_Name: PlayerPosKeeper
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPosKeeper
-  playerPosition: {x: 14.68664, y: 11.090208, z: 0}
+  playerPosition: {x: 0.84664714, y: 1.8269755, z: 0}
