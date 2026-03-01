@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b6140cd61fbee409d63e95b402a921, type: 3}
   m_Name: DataKeeper
   m_EditorClassIdentifier: Assembly-CSharp::BattleContext
-  enemyList: 02000000
-  livingEnemyList: 010100
-  battledEnemyIndex: 1
+  enemyList: 03000000
+  livingEnemyList: 010000
+  battledEnemyIndex: 0
