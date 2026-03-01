@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb77b5b2dbf8e75428b76b84c9ea01bf, type: 3}
   m_Name: MapFolder
   m_EditorClassIdentifier: Assembly-CSharp::MapFolder
-  maps: []
+  maps:
+  - {fileID: 4529794205071582446, guid: c74089f500f0ae040a1456f23a959dda, type: 3}
+  - {fileID: 4764078009598233687, guid: cc806dcc8948e0c42895d877a155020e, type: 3}
+  - {fileID: 5654526585708033905, guid: 9667891a425ce1d41b14bec49f4fcf89, type: 3}

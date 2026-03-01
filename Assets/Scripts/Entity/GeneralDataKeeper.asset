@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d74527b81b66046a3c59c4967e6785, type: 3}
   m_Name: GeneralDataKeeper
   m_EditorClassIdentifier: Assembly-CSharp::GeneralDataKeeper
-  currentFloorNum: 0
+  currentFloorNum: 1
+  maxFloorNum: 3
+  isFloorChanged: 0
