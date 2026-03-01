@@ -201,7 +201,7 @@ MonoBehaviour:
   battleContext: {fileID: 11400000, guid: 76a707a7a716f9f4aaa0fdf61e7354a2, type: 2}
   playerPosKeeper: {fileID: 11400000, guid: e601f649dcf33cd43892942af9c0c258, type: 2}
   generalDataKeeper: {fileID: 11400000, guid: ac8ac41b49bbb654582a2f22d5615a43, type: 2}
-  floorManager: {fileID: 0}
+  floorManager: {fileID: 1141801850}
 --- !u!50 &1204654470
 Rigidbody2D:
   serializedVersion: 5

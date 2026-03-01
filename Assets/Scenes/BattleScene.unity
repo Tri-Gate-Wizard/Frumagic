@@ -153,6 +153,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 976840082879781918, guid: d1b67a4ddfcfae34882f017b6034531e, type: 3}
   player: {fileID: 1293836317}
   enemyList: []
+  playerPosKeeper: {fileID: 11400000, guid: e601f649dcf33cd43892942af9c0c258, type: 2}
   battleCanvas: {fileID: 1525770379}
 --- !u!4 &298996021
 Transform:

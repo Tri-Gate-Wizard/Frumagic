@@ -30,14 +30,17 @@ public class ExploreManager : MonoBehaviour
             generalDataKeeper.isFloorChanged = false;
         }
         
+        /*
         for (int i = 0; i < enemyCount; i++)
         {
             SpawnEnemy(enemySample,i);
         }
+        
         if (isCleared)
         {
             Debug.Log("このエリアはクリアされている!");
         }
+        */
     }
 
     // Update is called once per frame

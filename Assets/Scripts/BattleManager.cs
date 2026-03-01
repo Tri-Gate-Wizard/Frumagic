@@ -13,6 +13,7 @@ public class BattleManager : MonoBehaviour
     public GameObject enemyPrefab;
     public Player player;
     public List<Enemy> enemyList;
+    public PlayerPosKeeper playerPosKeeper;
     
     public Canvas battleCanvas;
     bool isDefend = false;
@@ -68,6 +69,10 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("あなたの勝ち!");
             battleContext.livingEnemyList[battleContext.battledEnemyIndex] = false;
+        }else
+        {
+            Debug.Log("あなたの負け...");
+            playerPosKeeper.playerPosition = Vector3.zero; // プレイヤーの位置を初期位置にリセット
         }
         
         UnityEngine.SceneManagement.SceneManager.LoadScene("ExploreScene");
