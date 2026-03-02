@@ -15,6 +15,6 @@ MonoBehaviour:
   enemyName: SampleDragon
   enemyID: 3
   HP: 100
-  Atk: 20
+  Atk: 50
   weakness: 05000000
   enemySprite: {fileID: -9073970671714793378, guid: 4c000665e29e7aa4382fa180418fc1ce, type: 3}
