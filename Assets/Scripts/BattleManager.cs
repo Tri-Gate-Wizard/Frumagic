@@ -68,11 +68,13 @@ public class BattleManager : MonoBehaviour
         if (player.IsAlive())
         {
             Debug.Log("あなたの勝ち!");
-            battleContext.livingEnemyList[battleContext.battledEnemyIndex] = false;
+            //battleContext.livingEnemyList[battleContext.battledEnemyIndex] = false;
+            GameManager.instance.isWonBattle = true;
         }else
         {
             Debug.Log("あなたの負け...");
             GameManager.instance.playerPosition = Vector3.zero; // プレイヤーの位置を初期位置にリセット
+            GameManager.instance.isWonBattle = false;
         }
         
         UnityEngine.SceneManagement.SceneManager.LoadScene("ExploreScene");

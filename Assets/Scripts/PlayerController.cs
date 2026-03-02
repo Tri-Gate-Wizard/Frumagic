@@ -43,9 +43,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Battle Started!");
             // バトル開始のロジックをここに追加
-            battleContext.enemyList = other.GetComponent<EnemyBreakDown>().enemyIDs;
-            battleContext.battledEnemyIndex = other.GetComponent<EnemyBreakDown>().enemyIndex;
+            //battleContext.enemyList = other.GetComponent<EnemyBreakDown>().enemyIDs;
+            //battleContext.battledEnemyIndex = other.GetComponent<EnemyBreakDown>().enemyIndex;
             GameManager.instance.playerPosition = transform.position;
+            GameManager.instance.battleEnemyIndex = other.GetComponent<EnemyBreakDown>().enemyIndex;
             UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
         }
         else if (other.CompareTag("Transition") && !isTransitioning)

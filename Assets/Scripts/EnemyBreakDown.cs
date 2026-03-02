@@ -8,13 +8,14 @@ public class EnemyBreakDown: MonoBehaviour
 
     void Start()
     {
-        if (enemyIndex != GameManager.instance.battleEnemyIndex)
+        gameObject.SetActive(false);
+        if (enemyIndex == GameManager.instance.battleEnemyIndex && GameManager.instance.isWonBattle)
         {
-            gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
         else
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(true);
         }
     }
 }

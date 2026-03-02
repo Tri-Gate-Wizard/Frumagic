@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public int currentFloorNum;
     public int battleEnemyIndex;
     public Vector3 playerPosition;
+    public bool isWonBattle;
 
     void Awake()
     {
