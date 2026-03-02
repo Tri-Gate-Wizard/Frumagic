@@ -7,7 +7,7 @@ public class ExploreManager : MonoBehaviour
     public GameObject playerObject;
     //public PlayerPosKeeper playerPosKeeper;
     public GameObject enemySample;
-    public BattleContext battleContext;
+    //public BattleContext battleContext;
     //public GeneralDataKeeper generalDataKeeper;
     public int enemyCount = 3;
     public bool isCleared = true;
@@ -53,7 +53,7 @@ public class ExploreManager : MonoBehaviour
 
     void SpawnEnemy(GameObject enemy, int index)
     {   
-        if (battleContext.livingEnemyList[index])
+        if (GameManager.instance.livingEnemyList[index])
         {
             Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(0.0f, 25.0f), UnityEngine.Random.Range(0.0f, 25.0f), 0.0f);
             GameObject enemyInstance = Instantiate(enemy, spawnPosition, Quaternion.identity);

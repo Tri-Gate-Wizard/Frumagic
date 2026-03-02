@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     private Vector3 targetPosition;
     private bool isMoving = false;
-    public BattleContext battleContext;
+    //public BattleContext battleContext;
     //public PlayerPosKeeper playerPosKeeper;
     //public GeneralDataKeeper generalDataKeeper;
     public FloorManager floorManager;

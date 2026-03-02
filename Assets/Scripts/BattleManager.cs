@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 
 public class BattleManager : MonoBehaviour
 {   
-    [SerializeField] BattleContext battleContext; 
+    //[SerializeField] BattleContext battleContext; 
     [SerializeField] EnemyDatabase enemyDatabase;
 
     public GameObject enemyPrefab;
@@ -40,14 +40,14 @@ public class BattleManager : MonoBehaviour
         // Code to reset battle state
         battleCanvas.enabled = true;
         turnCount = 0;
-        foreach (int enemyID in battleContext.enemyList)
+        foreach (int enemyID in GameManager.instance.EnemyList)
         {
             Debug.Log("敵ID: " + enemyID);
         }
         enemyDatabase.Init();
         int i = 0;
 
-        foreach (int enemyID in battleContext.enemyList)
+        foreach (int enemyID in GameManager.instance.EnemyList)
         {
             EnemyObj enemyObj = enemyDatabase.GetEnemyByID(enemyID);
             Debug.Log("敵の名前: " + enemyObj.enemyName);

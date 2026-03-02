@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -5,8 +6,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int currentFloorNum;
-    public int battleEnemyIndex;
     public Vector3 playerPosition;
+    public List<int> EnemyList;
+    public List<bool> livingEnemyList;
+    public int battleEnemyIndex;
     public bool isWonBattle;
 
     void Awake()

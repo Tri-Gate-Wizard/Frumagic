@@ -17,5 +17,6 @@ public class EnemyBreakDown: MonoBehaviour
         {
             gameObject.SetActive(true);
         }
+        GameManager.instance.isWonBattle = false; // フラグをリセット
     }
 }
