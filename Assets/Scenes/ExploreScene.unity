@@ -149,8 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentFloorNum: 0
-  battleEnemyIndex: 1
   playerPosition: {x: 0, y: 0, z: 0}
+  EnemyList: 03000000
+  livingEnemyList: 
+  battleEnemyIndex: 1
+  isWonBattle: 0
 --- !u!4 &623585617
 Transform:
   m_ObjectHideFlags: 0
@@ -244,8 +247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 5
-  battleContext: {fileID: 11400000, guid: 76a707a7a716f9f4aaa0fdf61e7354a2, type: 2}
-  playerPosKeeper: {fileID: 11400000, guid: e601f649dcf33cd43892942af9c0c258, type: 2}
   floorManager: {fileID: 1141801850}
 --- !u!50 &1204654470
 Rigidbody2D:
@@ -653,9 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExploreManager
   playerObject: {fileID: 1204654468}
-  playerPosKeeper: {fileID: 11400000, guid: e601f649dcf33cd43892942af9c0c258, type: 2}
   enemySample: {fileID: 1037619018803380383, guid: c8efa62e6f783704dabcfddc71136595, type: 3}
-  battleContext: {fileID: 11400000, guid: 76a707a7a716f9f4aaa0fdf61e7354a2, type: 2}
   enemyCount: 3
   isCleared: 1
   mapFolder: {fileID: 11400000, guid: 8d0dcfb95a86d0c4fa3c1c3821687787, type: 2}
