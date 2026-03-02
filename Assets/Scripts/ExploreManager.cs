@@ -5,10 +5,10 @@ using System;
 public class ExploreManager : MonoBehaviour
 {
     public GameObject playerObject;
-    public PlayerPosKeeper playerPosKeeper;
+    //public PlayerPosKeeper playerPosKeeper;
     public GameObject enemySample;
     public BattleContext battleContext;
-    public GeneralDataKeeper generalDataKeeper;
+    //public GeneralDataKeeper generalDataKeeper;
     public int enemyCount = 3;
     public bool isCleared = true;
     public MapFolder mapFolder;
@@ -18,17 +18,19 @@ public class ExploreManager : MonoBehaviour
     void Start()
     {
         // プレイヤーの位置を復元
-        Debug.Log("現在のフロア: " + generalDataKeeper.currentFloorNum);
+        Debug.Log("現在のフロア: " + GameManager.instance.currentFloorNum);
 
         PlayerController playerController = playerObject.GetComponent<PlayerController>();
-        playerObject.transform.position = playerPosKeeper.playerPosition;
+        playerObject.transform.position = GameManager.instance.playerPosition;
         playerController.TransitionEnd(); // フロア遷移が完了したことをPlayerControllerに通知
-        currentMap = Instantiate(mapFolder.maps[generalDataKeeper.currentFloorNum], Vector3.zero, Quaternion.identity);
+        currentMap = Instantiate(mapFolder.maps[GameManager.instance.currentFloorNum], Vector3.zero, Quaternion.identity);
+        /*
         if (generalDataKeeper.isFloorChanged)
         {
             //playerObject.transform.position = Vector3.zero; // フロアが変わった場合はプレイヤーを初期位置に配置
             generalDataKeeper.isFloorChanged = false;
         }
+        */
         
         /*
         for (int i = 0; i < enemyCount; i++)

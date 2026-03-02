@@ -3,7 +3,7 @@ using UnityEngine;
 public class FloorManager : MonoBehaviour
 {
 
-    public GeneralDataKeeper generalDataKeeper;
+    //public GeneralDataKeeper generalDataKeeper;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,12 +20,13 @@ public class FloorManager : MonoBehaviour
     {
         // フロア遷移のロジックをここに追加
         Debug.Log("Loading next floor...");
-        generalDataKeeper.currentFloorNum++;
-        if (generalDataKeeper.currentFloorNum >= generalDataKeeper.maxFloorNum)
+        //generalDataKeeper.currentFloorNum++;
+        GameManager.instance.currentFloorNum++;
+        if (GameManager.instance.currentFloorNum >= 3)
         {
-            generalDataKeeper.currentFloorNum = 0; // フロア数をリセット
+            GameManager.instance.currentFloorNum = 0; // フロア数をリセット
         }
-        generalDataKeeper.isFloorChanged = true;
+        //generalDataKeeper.isFloorChanged = true;
         UnityEngine.SceneManagement.SceneManager.LoadScene("ExploreScene");
     }
 }

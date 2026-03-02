@@ -149,7 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentFloorNum: 0
-  battleEnemyIndex: 0
+  battleEnemyIndex: 1
+  playerPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &623585617
 Transform:
   m_ObjectHideFlags: 0
@@ -194,7 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a0e5cb11108ab4aa920dcb2d97e959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloorManager
-  generalDataKeeper: {fileID: 11400000, guid: ac8ac41b49bbb654582a2f22d5615a43, type: 2}
 --- !u!4 &1141801851
 Transform:
   m_ObjectHideFlags: 0
@@ -246,7 +246,6 @@ MonoBehaviour:
   moveSpeed: 5
   battleContext: {fileID: 11400000, guid: 76a707a7a716f9f4aaa0fdf61e7354a2, type: 2}
   playerPosKeeper: {fileID: 11400000, guid: e601f649dcf33cd43892942af9c0c258, type: 2}
-  generalDataKeeper: {fileID: 11400000, guid: ac8ac41b49bbb654582a2f22d5615a43, type: 2}
   floorManager: {fileID: 1141801850}
 --- !u!50 &1204654470
 Rigidbody2D:
@@ -657,7 +656,6 @@ MonoBehaviour:
   playerPosKeeper: {fileID: 11400000, guid: e601f649dcf33cd43892942af9c0c258, type: 2}
   enemySample: {fileID: 1037619018803380383, guid: c8efa62e6f783704dabcfddc71136595, type: 3}
   battleContext: {fileID: 11400000, guid: 76a707a7a716f9f4aaa0fdf61e7354a2, type: 2}
-  generalDataKeeper: {fileID: 11400000, guid: ac8ac41b49bbb654582a2f22d5615a43, type: 2}
   enemyCount: 3
   isCleared: 1
   mapFolder: {fileID: 11400000, guid: 8d0dcfb95a86d0c4fa3c1c3821687787, type: 2}

@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 targetPosition;
     private bool isMoving = false;
     public BattleContext battleContext;
-    public PlayerPosKeeper playerPosKeeper;
-    public GeneralDataKeeper generalDataKeeper;
+    //public PlayerPosKeeper playerPosKeeper;
+    //public GeneralDataKeeper generalDataKeeper;
     public FloorManager floorManager;
     private bool isTransitioning = false;
 
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
             // バトル開始のロジックをここに追加
             battleContext.enemyList = other.GetComponent<EnemyBreakDown>().enemyIDs;
             battleContext.battledEnemyIndex = other.GetComponent<EnemyBreakDown>().enemyIndex;
-            playerPosKeeper.playerPosition = transform.position;
+            GameManager.instance.playerPosition = transform.position;
             UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
         }
         else if (other.CompareTag("Transition") && !isTransitioning)
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Transition Triggered!");
             isTransitioning = true;
             // フロア遷移のロジックをここに追加
-            playerPosKeeper.playerPosition = new Vector3(0, 0, 0); // フロア遷移後のプレイヤーの位置を設定
+            GameManager.instance.playerPosition = new Vector3(0, 0, 0); // フロア遷移後のプレイヤーの位置を設定
             floorManager.LoadNextFloor();
 
         }
